@@ -44,10 +44,12 @@ export class MapView {
 
     this.state = {
       projectionId: 'equalEarth',
-      centerId: 'europe',
+      centerId: 'eastAsia',
       territoryScope: 'all',
-      showSoutheastPact: true,
+      showSoutheastPact: false,
       showCapitals: true,
+      viewMode: 'sequence', // 'sequence' | 'solo'
+      soloPowerId: null,
       activeStepIndex: 0,
       maxStepCount: 9,
       revealStage: 'all', // 'metropole' | 'all'
@@ -73,7 +75,6 @@ export class MapView {
 
     const defs = this.svg.append('defs');
 
-    // 大清柔光濾鏡
     const glow = defs
       .append('filter')
       .attr('id', 'qing-glow')
@@ -85,10 +86,9 @@ export class MapView {
       .attr('dx', 0)
       .attr('dy', 0)
       .attr('stdDeviation', 4)
-      .attr('flood-color', '#f59e0b')
-      .attr('flood-opacity', 0.48);
+      .attr('flood-color', '#d97706')
+      .attr('flood-opacity', 0.42);
 
-    // 東南互保斜紋圖樣
     const sePat = defs
       .append('pattern')
       .attr('id', 'southeast-pattern')
@@ -99,7 +99,6 @@ export class MapView {
     sePat.append('rect').attr('width', 8).attr('height', 8).attr('class', 'se-pattern-bg');
     sePat.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 0).attr('y2', 8).attr('class', 'se-pattern-line');
 
-    // 剛果自由邦私領斜紋
     const personalPat = defs
       .append('pattern')
       .attr('id', 'personal-pattern')
@@ -141,12 +140,12 @@ export class MapView {
       .selectAll('path.region-path')
       .data(this.features, (d) => d.properties.id)
       .join('path')
-      .attr('class', 'region-path')
+      .attr('class', (d) => `region-path power-${d.properties.power}`)
       .on('pointerenter', (event, d) => {
         if (event.pointerType === 'touch') return;
         this._showTooltip(event, d);
       })
-      .on('pointermove', (event, d) => {
+      .on('pointermove', (event) => {
         if (event.pointerType === 'touch') return;
         this._positionTooltip(event);
       })
@@ -193,23 +192,28 @@ export class MapView {
   }
 
   _initResizeObserver() {
-    const updateSize = () => {
-      const rect = this.containerEl.getBoundingClientRect();
-      if (rect.width < 40 || rect.height < 40) return;
-      this.width = Math.round(rect.width);
-      this.height = Math.round(rect.height);
-      this.svg.attr('viewBox', `0 0 ${this.width} ${this.height}`);
-      this.zoomBehavior.translateExtent([
-        [-this.width * 0.15, -this.height * 0.15],
-        [this.width * 1.15, this.height * 1.15],
-      ]);
-      this._renderGeometry();
-      this._renderCapitals();
-    };
-
-    updateSize();
-    this.resizeObserver = new ResizeObserver(() => updateSize());
+    this.refreshLayout();
+    this.resizeObserver = new ResizeObserver(() => this.refreshLayout());
     this.resizeObserver.observe(this.containerEl);
+  }
+
+  refreshLayout({ resetZoom = false } = {}) {
+    const w = this.containerEl.clientWidth;
+    const h = this.containerEl.clientHeight;
+    if (w < 40 || h < 40) return;
+    this.width = Math.round(w);
+    this.height = Math.round(h);
+    this.svg.attr('viewBox', `0 0 ${this.width} ${this.height}`);
+    this.zoomBehavior.translateExtent([
+      [-this.width * 0.15, -this.height * 0.15],
+      [this.width * 1.15, this.height * 1.15],
+    ]);
+    if (resetZoom) {
+      this.currentTransform = zoomIdentity;
+      this.svg.call(this.zoomBehavior.transform, zoomIdentity);
+    }
+    this._renderGeometry();
+    this._renderCapitals();
   }
 
   zoomIn() {
@@ -284,6 +288,8 @@ export class MapView {
 
   _renderStates() {
     const {
+      viewMode,
+      soloPowerId,
       activeStepIndex,
       maxStepCount,
       territoryScope,
@@ -291,33 +297,42 @@ export class MapView {
       revealStage,
     } = this.state;
 
+    const isSolo = viewMode === 'solo' && Boolean(soloPowerId);
     const visibleSteps = this.steps.slice(0, maxStepCount);
     const activeStep = visibleSteps[activeStepIndex] || visibleSteps[0];
-    const activePowerId = activeStep?.id || 'qing';
+    const activePowerId = isSolo ? soloPowerId : activeStep?.id || 'qing';
 
     const declaredSet = new Set();
-    for (let i = 1; i <= activeStepIndex && i < visibleSteps.length; i++) {
-      declaredSet.add(visibleSteps[i].id);
+    if (!isSolo) {
+      for (let i = 1; i <= activeStepIndex && i < visibleSteps.length; i++) {
+        declaredSet.add(visibleSteps[i].id);
+      }
     }
+
+    const qingLit = isSolo ? soloPowerId === 'qing' : true;
 
     this.regionPaths.attr('class', (d) => {
       const { power, tier } = d.properties;
-      const classes = ['region-path'];
+      const classes = ['region-path', `power-${power}`];
 
       if (power === 'qing') {
-        classes.push('is-qing');
-        if (activeStepIndex === 0) {
-          classes.push('is-qing-focus');
+        if (qingLit) {
+          classes.push('is-qing');
+          if (isSolo || activeStepIndex === 0) {
+            classes.push('is-qing-focus');
+          }
+        } else {
+          classes.push('is-unlit');
         }
         return classes.join(' ');
       }
 
-      if (power === 'neutral' || !declaredSet.has(power)) {
+      const isLitPower = isSolo ? power === soloPowerId : declaredSet.has(power);
+      if (power === 'neutral' || !isLitPower) {
         classes.push(power === 'neutral' ? 'is-neutral' : 'is-unlit');
         return classes.join(' ');
       }
 
-      // 若選「僅顯示本土」，所有非 metropole 的屬地維持未點亮（淡灰）
       const isMetropole = tier === 'metropole';
       if (territoryScope === 'metropoleOnly' && !isMetropole) {
         classes.push('is-unlit-scope');
@@ -325,11 +340,10 @@ export class MapView {
       }
 
       const isCurrentPower = power === activePowerId;
-
       if (isCurrentPower) {
         if (isMetropole) {
           classes.push('is-active-metropole');
-        } else if (revealStage === 'metropole') {
+        } else if (!isSolo && revealStage === 'metropole') {
           classes.push('is-unlit-pending');
         } else if (tier === 'personal') {
           classes.push('is-active-personal');
@@ -350,31 +364,43 @@ export class MapView {
     });
 
     this.regionPaths.attr('filter', (d) =>
-      d.properties.power === 'qing' ? 'url(#qing-glow)' : null
+      d.properties.power === 'qing' && qingLit ? 'url(#qing-glow)' : null
     );
 
-    this.southeastLayer.classed('is-visible', Boolean(showSoutheastPact));
+    this.southeastLayer.classed('is-visible', Boolean(showSoutheastPact && qingLit));
   }
 
   _renderCapitals() {
     if (!this.projection) return;
-    const { activeStepIndex, maxStepCount, showCapitals, pulseNonce } = this.state;
+    const { viewMode, soloPowerId, activeStepIndex, maxStepCount, showCapitals, pulseNonce } = this.state;
 
     if (!showCapitals) {
       this.capitalsLayer.selectAll('*').remove();
       return;
     }
 
+    const isSolo = viewMode === 'solo' && Boolean(soloPowerId);
     const visibleSteps = this.steps.slice(0, maxStepCount);
-    const activeItems = visibleSteps.slice(0, activeStepIndex + 1).map((step, idx) => {
-      const pt = this.projection(step.capital.coords);
-      return {
-        ...step,
-        projected: pt,
-        isCurrent: idx === activeStepIndex,
-        isQing: step.id === 'qing',
-      };
-    }).filter((item) => Array.isArray(item.projected) && Number.isFinite(item.projected[0]));
+    const activeItemsRaw = isSolo
+      ? visibleSteps
+          .filter((s) => s.id === soloPowerId)
+          .map((step) => ({
+            ...step,
+            isCurrent: true,
+            isQing: step.id === 'qing',
+          }))
+      : visibleSteps.slice(0, activeStepIndex + 1).map((step, idx) => ({
+          ...step,
+          isCurrent: idx === activeStepIndex,
+          isQing: step.id === 'qing',
+        }));
+
+    const activeItems = activeItemsRaw
+      .map((item) => ({
+        ...item,
+        projected: this.projection(item.capital.coords),
+      }))
+      .filter((item) => Array.isArray(item.projected) && Number.isFinite(item.projected[0]));
 
     const groups = this.capitalsLayer
       .selectAll('g.capital-marker')
@@ -404,7 +430,6 @@ export class MapView {
       .style('display', (d) => (d.isCurrent ? null : 'none'))
       .attr('data-nonce', pulseNonce);
 
-    // 觸發重啟動畫（當切換到新國家時）
     groups.each(function (d) {
       if (d.isCurrent) {
         const pulse = this.querySelector('circle.capital-pulse');
@@ -468,17 +493,34 @@ export class MapView {
   }
 
   _positionTooltip(event) {
-    const containerRect = this.containerEl.getBoundingClientRect();
-    const tipRect = this.tooltipEl.getBoundingClientRect();
-    const offset = 14;
-    let left = event.clientX - containerRect.left + offset;
-    let top = event.clientY - containerRect.top + offset;
+    const svgEl = this.svg.node();
+    let localX = 16;
+    let localY = 16;
 
-    if (left + tipRect.width > containerRect.width - 10) {
-      left = Math.max(10, event.clientX - containerRect.left - tipRect.width - offset);
+    if (svgEl && svgEl.createSVGPoint && svgEl.getScreenCTM()) {
+      const pt = svgEl.createSVGPoint();
+      pt.x = event.clientX;
+      pt.y = event.clientY;
+      const mapped = pt.matrixTransform(svgEl.getScreenCTM().inverse());
+      localX = mapped.x;
+      localY = mapped.y;
+    } else {
+      const containerRect = this.containerEl.getBoundingClientRect();
+      localX = event.clientX - containerRect.left;
+      localY = event.clientY - containerRect.top;
     }
-    if (top + tipRect.height > containerRect.height - 10) {
-      top = Math.max(10, event.clientY - containerRect.top - tipRect.height - offset);
+
+    const tipW = this.tooltipEl.offsetWidth || 260;
+    const tipH = this.tooltipEl.offsetHeight || 120;
+    const offset = 14;
+    let left = localX + offset;
+    let top = localY + offset;
+
+    if (left + tipW > this.width - 10) {
+      left = Math.max(10, localX - tipW - offset);
+    }
+    if (top + tipH > this.height - 10) {
+      top = Math.max(10, localY - tipH - offset);
     }
 
     this.tooltipEl.style.left = `${left}px`;

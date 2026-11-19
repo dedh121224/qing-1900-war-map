@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant" data-theme="cinema">
+<html lang="zh-Hant" data-theme="parchment" data-color-mode="byPower">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -29,7 +29,7 @@
     />
   </head>
   <body>
-    <div class="app-shell">
+    <div class="app-shell" id="app-shell">
       <header class="top-bar">
         <div class="brand-group">
           <h1 class="brand-title">1900 庚子宣戰・等積投影世界圖</h1>
@@ -53,7 +53,7 @@
             投影：Equal Earth
           </button>
           <button type="button" id="btn-quick-theme" class="btn-top-icon" aria-label="切換視覺主題">
-            <span class="btn-icon-glyph">📜</span>
+            <span class="btn-icon-glyph">🕯️</span>
           </button>
           <button type="button" id="btn-quick-sound" class="btn-top-icon" aria-label="切換音效">
             <span class="btn-icon-glyph">🔊</span>
@@ -70,18 +70,48 @@
       </header>
 
       <main class="map-stage" id="map-container">
-        <div class="map-legend" aria-label="地圖圖例">
-          <span class="legend-item"><i class="swatch qing"></i>大清帝國</span>
-          <span class="legend-item"><i class="swatch active"></i>剛宣戰列強</span>
-          <span class="legend-item"><i class="swatch declared"></i>已宣戰列強</span>
-          <span class="legend-item" id="legend-southeast"><i class="swatch southeast"></i>東南互保</span>
-          <span class="legend-item" id="legend-personal" hidden><i class="swatch personal"></i>比王私領剛果</span>
-        </div>
+        <button
+          type="button"
+          id="btn-enter-fullscreen"
+          class="btn-fullscreen"
+          aria-label="橫屏全螢幕檢視地圖"
+          title="放大至橫屏全螢幕"
+        >
+          <span>⛶</span>
+          <span>橫屏全螢幕</span>
+        </button>
 
         <div class="zoom-controls" aria-label="地圖縮放控制">
           <button type="button" id="btn-zoom-in" class="zoom-btn" aria-label="放大地圖" title="放大">+</button>
           <button type="button" id="btn-zoom-out" class="zoom-btn" aria-label="縮小地圖" title="縮小">−</button>
           <button type="button" id="btn-zoom-reset" class="zoom-btn" aria-label="重設地圖視角" title="重設視角">⟲</button>
+        </div>
+
+        <div class="fullscreen-hud" id="fullscreen-hud">
+          <div class="fs-top-left">
+            <div class="fs-status-title" id="fs-status-title"></div>
+            <div class="fs-status-quote" id="fs-status-quote"></div>
+            <div class="fs-status-stats" id="fs-status-stats"></div>
+          </div>
+
+          <div class="fs-top-right">
+            <button type="button" id="fs-btn-prev" class="fs-btn" aria-label="上一步">◀</button>
+            <button type="button" id="fs-btn-play" class="fs-btn fs-btn-play">▶ 宣戰</button>
+            <button type="button" id="fs-btn-next" class="fs-btn" aria-label="下一步">▶</button>
+            <button type="button" id="fs-btn-exit" class="fs-btn fs-btn-exit" aria-label="退出全螢幕">✕ 退出</button>
+          </div>
+
+          <div class="fs-country-dock" id="fs-country-dock">
+            <button
+              type="button"
+              id="fs-dock-toggle"
+              class="fs-dock-toggle"
+              aria-expanded="true"
+            >
+              收合 ▾
+            </button>
+            <div class="fs-country-scroll" id="fs-country-scroll" aria-label="全螢幕單國檢視列"></div>
+          </div>
         </div>
 
         <div id="map-tooltip" class="map-tooltip" hidden></div>
@@ -91,7 +121,10 @@
       <footer class="bottom-hud">
         <div id="area-meter" class="area-meter"></div>
         <div id="narrative-deck" class="narrative-deck"></div>
-        <nav id="timeline-bar" class="timeline-bar" aria-label="宣戰順序時間軸"></nav>
+        <div class="country-bar-wrap">
+          <span class="country-bar-hint">單國檢視</span>
+          <nav id="timeline-bar" class="timeline-bar" aria-label="各國領土單獨檢視"></nav>
+        </div>
       </footer>
     </div>
 

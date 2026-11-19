@@ -1,13 +1,14 @@
 import { CENTER_OPTIONS, PROJECTION_OPTIONS } from '../map/projections.js';
 
 export const DEFAULT_SETTINGS = {
-  theme: 'cinema',
+  theme: 'parchment',
+  colorMode: 'byPower',
   projectionId: 'equalEarth',
-  centerId: 'europe',
+  centerId: 'eastAsia',
   powerMode: 'drama8',
   territoryScope: 'all',
   twoStageAnimation: true,
-  showSoutheastPact: true,
+  showSoutheastPact: false,
   showCapitals: true,
   soundEnabled: true,
   playbackSpeed: 'normal',
@@ -19,7 +20,7 @@ export const SPEED_MS = {
   fast: 1800,
 };
 
-const STORAGE_KEY = 'qing-1900-settings-v1';
+const STORAGE_KEY = 'qing-1900-settings-v2';
 
 export function loadSettings() {
   try {
@@ -87,15 +88,25 @@ export class SettingsDrawer {
       </div>
       <div class="drawer-scroll">
         <section class="setting-group">
-          <h3>視覺風格</h3>
+          <h3>視覺風格與配色</h3>
           <div class="segmented-control" role="radiogroup" aria-label="視覺風格">
+            <label class="seg-item">
+              <input type="radio" name="theme" value="parchment" ${this.settings.theme === 'parchment' ? 'checked' : ''} />
+              <span>復古羊皮紙輿圖</span>
+            </label>
             <label class="seg-item">
               <input type="radio" name="theme" value="cinema" ${this.settings.theme === 'cinema' ? 'checked' : ''} />
               <span>深色電影特展</span>
             </label>
+          </div>
+          <div class="segmented-control" style="margin-top:8px" role="radiogroup" aria-label="國家配色模式">
             <label class="seg-item">
-              <input type="radio" name="theme" value="parchment" ${this.settings.theme === 'parchment' ? 'checked' : ''} />
-              <span>復古羊皮紙輿圖</span>
+              <input type="radio" name="colorMode" value="byPower" ${this.settings.colorMode === 'byPower' ? 'checked' : ''} />
+              <span>各國分色（推薦）</span>
+            </label>
+            <label class="seg-item">
+              <input type="radio" name="colorMode" value="unifiedCrimson" ${this.settings.colorMode === 'unifiedCrimson' ? 'checked' : ''} />
+              <span>統一列強緋紅</span>
             </label>
           </div>
         </section>

@@ -1,62 +1,8 @@
 :root,
-[data-theme='cinema'] {
+[data-theme='parchment'] {
   --font-serif: 'Noto Serif TC', 'Source Han Serif TC', 'PMingLiU', Georgia, serif;
   --font-sans: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', system-ui, -apple-system, sans-serif;
 
-  --bg-app: #070a10;
-  --bg-app-radial: radial-gradient(circle at 50% 35%, #111827 0%, #070a10 72%);
-  --bg-panel: rgba(12, 17, 29, 0.86);
-  --bg-panel-solid: #0f1523;
-  --bg-elevated: rgba(25, 34, 54, 0.85);
-  --bg-pill: rgba(30, 41, 59, 0.72);
-  --bg-pill-hover: rgba(51, 65, 85, 0.9);
-  --border-subtle: rgba(148, 163, 184, 0.16);
-  --border-strong: rgba(245, 158, 11, 0.4);
-
-  --text-primary: #f1f5f9;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
-  --text-accent: #fbbf24;
-  --text-danger: #fb7185;
-
-  --map-ocean: #0b1322;
-  --map-ocean-edge: rgba(148, 163, 184, 0.28);
-  --map-graticule: rgba(148, 163, 184, 0.085);
-  --map-neutral: #1a2335;
-  --map-neutral-stroke: #2c3a54;
-  --map-unlit: #202b40;
-  --map-unlit-stroke: #32415c;
-
-  --map-qing: #f59e0b;
-  --map-qing-stroke: #fef08a;
-  --map-qing-glow: rgba(245, 158, 11, 0.45);
-
-  --map-active-metropole: #ff4d2e;
-  --map-active-metropole-stroke: #fde047;
-  --map-active-colony: #ef4444;
-  --map-active-colony-stroke: #fca5a5;
-
-  --map-declared-metropole: #b91c1c;
-  --map-declared-metropole-stroke: #ef4444;
-  --map-declared-colony: #8f1d1d;
-  --map-declared-colony-stroke: #b91c1c;
-
-  --map-personal-bg: #7f1d1d;
-  --map-personal-stripe: #dc2626;
-  --map-southeast-bg: rgba(15, 23, 42, 0.48);
-  --map-southeast-stripe: rgba(226, 232, 240, 0.65);
-
-  --capital-qing: #fef08a;
-  --capital-active: #fff7ed;
-  --capital-declared: #fca5a5;
-
-  --shadow-panel: 0 12px 36px rgba(0, 0, 0, 0.5);
-  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.45);
-  --meter-qing: linear-gradient(90deg, #d97706, #fbbf24);
-  --meter-powers: linear-gradient(90deg, #991b1b, #ef4444, #ff6b4a);
-}
-
-[data-theme='parchment'] {
   --bg-app: #eadec9;
   --bg-app-radial: radial-gradient(circle at 50% 40%, #f4ebd9 0%, #e1d1b4 85%);
   --bg-panel: rgba(248, 241, 228, 0.92);
@@ -81,31 +27,189 @@
   --map-unlit: #cbb68e;
   --map-unlit-stroke: #856c4b;
 
-  --map-qing: #d99b1c;
-  --map-qing-stroke: #713f12;
+  --map-qing: #d89b24;
+  --map-qing-stroke: #784f08;
   --map-qing-glow: rgba(180, 118, 12, 0.32);
 
+  /* 統一列強緋紅備選 */
   --map-active-metropole: #d92b2b;
   --map-active-metropole-stroke: #450a0a;
   --map-active-colony: #de483c;
   --map-active-colony-stroke: #7f1d1d;
-
   --map-declared-metropole: #9d1c1c;
   --map-declared-metropole-stroke: #5c1010;
   --map-declared-colony: #842323;
   --map-declared-colony-stroke: #5c1919;
 
+  /* 12 國古典輿圖諧調分色 */
+  --p-qing: #d89b24;
+  --p-qing-col: #d89b24;
+  --p-qing-stroke: #784f08;
+
+  --p-uk: #b83b46;
+  --p-uk-col: #cb5862;
+  --p-uk-stroke: #6e1e26;
+
+  --p-france: #37628c;
+  --p-france-col: #517da6;
+  --p-france-stroke: #1f3e5c;
+
+  --p-usa: #2d7b78;
+  --p-usa-col: #499491;
+  --p-usa-stroke: #1a4d4b;
+
+  --p-germany: #5f4d70;
+  --p-germany-col: #78658a;
+  --p-germany-stroke: #372b42;
+
+  --p-russia: #3d7055;
+  --p-russia-col: #588c70;
+  --p-russia-stroke: #224532;
+
+  --p-italy: #75853b;
+  --p-italy-col: #8f9e54;
+  --p-italy-stroke: #454f20;
+
+  --p-austria: #bc6736;
+  --p-austria-col: #ce8152;
+  --p-austria-stroke: #6e391b;
+
+  --p-japan: #c94c33;
+  --p-japan-col: #dc6c54;
+  --p-japan-stroke: #732516;
+
+  --p-netherlands: #cc7926;
+  --p-netherlands-col: #de9447;
+  --p-netherlands-stroke: #754210;
+
+  --p-belgium: #853a52;
+  --p-belgium-col: #a35870;
+  --p-belgium-stroke: #4f1f2f;
+
+  --p-spain: #a68a38;
+  --p-spain-col: #bda355;
+  --p-spain-stroke: #614f1c;
+
   --map-personal-bg: #7a2626;
   --map-personal-stripe: #c84b4b;
+  --map-personal-bypower-bg: #8c4159;
+  --map-personal-bypower-stripe: #c4748d;
   --map-southeast-bg: rgba(90, 74, 54, 0.28);
   --map-southeast-stripe: rgba(45, 32, 18, 0.6);
 
   --capital-qing: #78350f;
   --capital-active: #450a0a;
-  --capital-declared: #7f1d1d;
+  --capital-declared: #3b2614;
 
   --shadow-panel: 0 10px 28px rgba(68, 46, 20, 0.18);
   --shadow-card: 0 6px 18px rgba(68, 46, 20, 0.16);
   --meter-qing: linear-gradient(90deg, #b45309, #eab308);
   --meter-powers: linear-gradient(90deg, #7f1d1d, #b91c1c, #e11d48);
+}
+
+[data-theme='cinema'] {
+  --font-serif: 'Noto Serif TC', 'Source Han Serif TC', 'PMingLiU', Georgia, serif;
+  --font-sans: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', system-ui, -apple-system, sans-serif;
+
+  --bg-app: #070a10;
+  --bg-app-radial: radial-gradient(circle at 50% 35%, #111827 0%, #070a10 72%);
+  --bg-panel: rgba(12, 17, 29, 0.88);
+  --bg-panel-solid: #0f1523;
+  --bg-elevated: rgba(25, 34, 54, 0.85);
+  --bg-pill: rgba(30, 41, 59, 0.74);
+  --bg-pill-hover: rgba(51, 65, 85, 0.92);
+  --border-subtle: rgba(148, 163, 184, 0.16);
+  --border-strong: rgba(245, 158, 11, 0.45);
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-accent: #fbbf24;
+  --text-danger: #fb7185;
+
+  --map-ocean: #0b1322;
+  --map-ocean-edge: rgba(148, 163, 184, 0.28);
+  --map-graticule: rgba(148, 163, 184, 0.085);
+  --map-neutral: #1a2335;
+  --map-neutral-stroke: #2c3a54;
+  --map-unlit: #202b40;
+  --map-unlit-stroke: #32415c;
+
+  --map-qing: #eab308;
+  --map-qing-stroke: #fef08a;
+  --map-qing-glow: rgba(245, 158, 11, 0.45);
+
+  --map-active-metropole: #ff4d2e;
+  --map-active-metropole-stroke: #fde047;
+  --map-active-colony: #ef4444;
+  --map-active-colony-stroke: #fca5a5;
+  --map-declared-metropole: #b91c1c;
+  --map-declared-metropole-stroke: #ef4444;
+  --map-declared-colony: #8f1d1d;
+  --map-declared-colony-stroke: #b91c1c;
+
+  /* 12 國深色電影諧調分色 */
+  --p-qing: #eab308;
+  --p-qing-col: #eab308;
+  --p-qing-stroke: #fef08a;
+
+  --p-uk: #e04f5f;
+  --p-uk-col: #c94353;
+  --p-uk-stroke: #fda4af;
+
+  --p-france: #3d84c7;
+  --p-france-col: #366fa8;
+  --p-france-stroke: #93c5fd;
+
+  --p-usa: #1aa3a3;
+  --p-usa-col: #1f8589;
+  --p-usa-stroke: #5eead4;
+
+  --p-germany: #8f73ba;
+  --p-germany-col: #785da1;
+  --p-germany-stroke: #d8b4fe;
+
+  --p-russia: #3da374;
+  --p-russia-col: #32855f;
+  --p-russia-stroke: #86efac;
+
+  --p-italy: #8fb046;
+  --p-italy-col: #79963a;
+  --p-italy-stroke: #d9f99d;
+
+  --p-austria: #de7a40;
+  --p-austria-col: #bf6634;
+  --p-austria-stroke: #fdba74;
+
+  --p-japan: #f06449;
+  --p-japan-col: #d6543c;
+  --p-japan-stroke: #fca5a5;
+
+  --p-netherlands: #e88c38;
+  --p-netherlands-col: #cc782d;
+  --p-netherlands-stroke: #fcd34d;
+
+  --p-belgium: #ba4e72;
+  --p-belgium-col: #9c3d5d;
+  --p-belgium-stroke: #f9a8d4;
+
+  --p-spain: #c7ab4e;
+  --p-spain-col: #ab913e;
+  --p-spain-stroke: #fde68a;
+
+  --map-personal-bg: #7f1d1d;
+  --map-personal-stripe: #dc2626;
+  --map-personal-bypower-bg: #7c2d4a;
+  --map-personal-bypower-stripe: #d66d92;
+  --map-southeast-bg: rgba(15, 23, 42, 0.48);
+  --map-southeast-stripe: rgba(226, 232, 240, 0.65);
+
+  --capital-qing: #fef08a;
+  --capital-active: #fff7ed;
+  --capital-declared: #e2e8f0;
+
+  --shadow-panel: 0 12px 36px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --meter-qing: linear-gradient(90deg, #d97706, #fbbf24);
+  --meter-powers: linear-gradient(90deg, #991b1b, #ef4444, #ff6b4a);
 }

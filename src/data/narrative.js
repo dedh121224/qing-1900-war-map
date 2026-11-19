@@ -17,7 +17,7 @@ export const STEPS = [
   {
     id: 'uk',
     order: 1,
-    shortLabel: '1 英',
+    shortLabel: '英國',
     nameZh: '大英帝國',
     nameEn: 'British Empire',
     speechLead: '第一國・英吉利國',
@@ -32,7 +32,7 @@ export const STEPS = [
   {
     id: 'france',
     order: 2,
-    shortLabel: '2 法',
+    shortLabel: '法國',
     nameZh: '法蘭西第三共和國',
     nameEn: 'French Third Republic',
     speechLead: '第二國・法蘭西國',
@@ -47,7 +47,7 @@ export const STEPS = [
   {
     id: 'usa',
     order: 3,
-    shortLabel: '3 美',
+    shortLabel: '美國',
     nameZh: '美利堅合眾國',
     nameEn: 'United States',
     speechLead: '第三國・美利堅國',
@@ -62,7 +62,7 @@ export const STEPS = [
   {
     id: 'germany',
     order: 4,
-    shortLabel: '4 德',
+    shortLabel: '德國',
     nameZh: '德意志帝國',
     nameEn: 'German Empire',
     speechLead: '第四國・德意志國',
@@ -77,7 +77,7 @@ export const STEPS = [
   {
     id: 'russia',
     order: 5,
-    shortLabel: '5 俄',
+    shortLabel: '俄國',
     nameZh: '俄羅斯帝國',
     nameEn: 'Russian Empire',
     speechLead: '第五國・俄羅斯國',
@@ -92,7 +92,7 @@ export const STEPS = [
   {
     id: 'italy',
     order: 6,
-    shortLabel: '6 義',
+    shortLabel: '義大利',
     nameZh: '義大利王國',
     nameEn: 'Kingdom of Italy',
     speechLead: '第六國・義大利國',
@@ -106,7 +106,7 @@ export const STEPS = [
   {
     id: 'austria',
     order: 7,
-    shortLabel: '7 奧',
+    shortLabel: '奧匈',
     nameZh: '奧匈帝國',
     nameEn: 'Austria-Hungary',
     speechLead: '第七國・奧地利國（奧匈帝國）',
@@ -120,7 +120,7 @@ export const STEPS = [
   {
     id: 'japan',
     order: 8,
-    shortLabel: '8 日',
+    shortLabel: '日本',
     nameZh: '大日本帝國',
     nameEn: 'Empire of Japan',
     speechLead: '第八國・日本國（劇中宣戰完結）',
@@ -134,7 +134,7 @@ export const STEPS = [
   {
     id: 'netherlands',
     order: 9,
-    shortLabel: '9 荷',
+    shortLabel: '荷蘭',
     nameZh: '荷蘭王國',
     nameEn: 'Kingdom of the Netherlands',
     speechLead: '史實補完・第九國（《宣戰詔書》涵蓋對象）',
@@ -148,7 +148,7 @@ export const STEPS = [
   {
     id: 'belgium',
     order: 10,
-    shortLabel: '10 比',
+    shortLabel: '比利時',
     nameZh: '比利時王國',
     nameEn: 'Kingdom of Belgium',
     speechLead: '史實補完・第十國（《宣戰詔書》涵蓋對象）',
@@ -162,7 +162,7 @@ export const STEPS = [
   {
     id: 'spain',
     order: 11,
-    shortLabel: '11 西',
+    shortLabel: '西班牙',
     nameZh: '西班牙王國',
     nameEn: 'Kingdom of Spain',
     speechLead: '史實補完・第十一國（《辛丑條約》十一國全數到齊）',
