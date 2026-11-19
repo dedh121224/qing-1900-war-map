@@ -133,6 +133,10 @@ async function bootstrap() {
   async function enterFullscreen() {
     appState.isFullscreen = true;
     appShellEl.classList.add('is-map-fullscreen');
+    syncFullscreenRotation();
+    requestAnimationFrame(() => {
+      mapView.refreshLayout({ resetZoom: true });
+    });
 
     try {
       if (document.documentElement.requestFullscreen && !document.fullscreenElement) {
@@ -150,13 +154,15 @@ async function bootstrap() {
       // 不支援方向鎖定或未在允許全螢幕環境時，自動改由 CSS 橫屏旋轉接手
     }
 
+    if (!appState.isFullscreen) return;
     syncFullscreenRotation();
     requestAnimationFrame(() => {
       mapView.refreshLayout({ resetZoom: true });
       setTimeout(() => {
+        if (!appState.isFullscreen) return;
         syncFullscreenRotation();
         mapView.refreshLayout({ resetZoom: true });
-      }, 140);
+      }, 120);
     });
   }
 

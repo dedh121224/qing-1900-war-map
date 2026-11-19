@@ -1044,11 +1044,23 @@ body {
   z-index: 35;
 }
 
-.fs-top-left {
+.fs-top-bar {
   position: absolute;
   top: 10px;
   left: 12px;
-  max-width: min(52%, 410px);
+  right: 12px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  z-index: 13;
+  pointer-events: none;
+}
+
+.fs-top-left {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 440px;
   padding: 6px 11px;
   border-radius: 10px;
   background: var(--bg-panel);
@@ -1056,7 +1068,6 @@ body {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-subtle);
   box-shadow: var(--shadow-card);
-  z-index: 12;
   pointer-events: none;
 }
 
@@ -1085,16 +1096,17 @@ body {
   color: var(--text-secondary);
   font-variant-numeric: tabular-nums;
   margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .fs-top-right {
-  position: absolute;
-  top: 10px;
-  right: 12px;
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
-  gap: 6px;
-  z-index: 13;
+  gap: 5px;
+  pointer-events: auto;
 }
 
 .fs-btn {
@@ -1475,13 +1487,13 @@ body {
 /* === 行動端 RWD (手機直屏優化，含 360px 窄屏實機) === */
 @media (max-width: 768px) {
   .top-bar {
-    padding: 7px 10px;
-    gap: 6px;
+    padding: 7px 8px;
+    gap: 5px;
   }
 
   .brand-title {
-    font-size: clamp(0.8rem, 3.75vw, 0.94rem);
-    letter-spacing: 0.01em;
+    font-size: clamp(0.76rem, 3.35vw, 0.92rem);
+    letter-spacing: 0;
     flex-shrink: 1;
   }
 
@@ -1490,11 +1502,11 @@ body {
   }
 
   .btn-top-icon {
-    min-width: 30px;
-    height: 30px;
-    padding: 0 6px;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 5px;
     border-radius: 8px;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
   }
 
   .brand-sub,
