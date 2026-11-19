@@ -62,6 +62,7 @@ body {
   letter-spacing: 0.04em;
   color: var(--text-primary);
   white-space: nowrap;
+  flex-shrink: 0;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -70,6 +71,15 @@ body {
   font-size: 0.78rem;
   color: var(--text-muted);
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+@media (max-width: 1120px) {
+  .brand-sub {
+    display: none;
+  }
 }
 
 .top-actions {
@@ -1163,7 +1173,25 @@ body {
 /* === 行動端 RWD (手機直屏優化) === */
 @media (max-width: 768px) {
   .top-bar {
-    padding: 8px 12px;
+    padding: 8px 10px;
+    gap: 6px;
+  }
+
+  .brand-title {
+    font-size: 0.9rem;
+    letter-spacing: 0.01em;
+    flex-shrink: 1;
+  }
+
+  .top-actions {
+    gap: 5px;
+  }
+
+  .btn-top-icon {
+    min-width: 32px;
+    height: 32px;
+    padding: 0 7px;
+    border-radius: 8px;
   }
 
   .brand-sub,
