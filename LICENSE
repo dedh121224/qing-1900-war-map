@@ -1,0 +1,19 @@
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
+
+Copyright (C) 2026 dedh121224
+
+This project uses historical border geometries sliced at 1900-06-21 from:
+  CShapes 2.0 (ETH Zurich International Conflict Research)
+  https://icr.ethz.ch/data/cshapes/
+  Schvitz, Guy, Seraina Rüegger, Luc Girardin, Lars-Erik Cederman,
+  Nils B. Weidmann, and Kristian Skrede Gleditsch (2022).
+  "Mapping The International System, 1886–2019: The CShapes 2.0 Dataset."
+  Journal of Conflict Resolution.
+
+In accordance with the CShapes 2.0 license, this project and its derived
+map data are distributed under the Creative Commons Attribution-NonCommercial-ShareAlike
+4.0 International License (CC BY-NC-SA 4.0):
+  https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+Original application code is compatible with CC BY-NC-SA 4.0 for non-commercial
+sharing, attribution, and adaptation under the same license.

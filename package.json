@@ -1,0 +1,28 @@
+{
+  "name": "qing-1900-war-map",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "1900 庚子宣戰等積投影歷史互動地圖 — 依《走向共和》八國／史實十一國順序呈現",
+  "scripts": {
+    "prepare-data": "node scripts/prepare-data.mjs",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "d3-ease": "^3.0.1",
+    "d3-geo": "^3.1.1",
+    "d3-geo-projection": "^4.0.0",
+    "d3-selection": "^3.0.0",
+    "d3-transition": "^3.0.1",
+    "d3-zoom": "^3.0.0",
+    "topojson-client": "^3.1.0"
+  },
+  "devDependencies": {
+    "topojson-server": "^3.0.1",
+    "topojson-simplify": "^3.0.3",
+    "vite": "^6.3.5"
+  },
+  "license": "CC-BY-NC-SA-4.0"
+}

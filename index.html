@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-Hant" data-theme="cinema">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>1900 庚子宣戰：等積投影歷史版圖互動地圖</title>
+    <meta
+      name="description"
+      content="在嚴格等積投影地圖上，從大清帝國出發，依《走向共和》八國與史實《辛丑條約》十一國順序逐一點亮 1900 年全球殖民版圖，直觀感受向大半個地球宣戰的真實面積衝擊。"
+    />
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="1900 庚子宣戰：等積投影歷史版圖互動地圖" />
+    <meta
+      property="og:description"
+      content="拒絕麥卡托失真！依《走向共和》慈禧宣戰順序，在真實面積比例尺下逐一點亮 1900 年大英、法蘭西、美利堅、德意志、俄羅斯等列強全球殖民疆域。"
+    />
+    <meta property="og:url" content="https://dedh121224.github.io/qing-1900-war-map/" />
+    <meta property="og:image" content="https://dedh121224.github.io/qing-1900-war-map/favicon.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="top-bar">
+        <div class="brand-group">
+          <h1 class="brand-title">1900 庚子宣戰・等積投影世界圖</h1>
+          <span class="brand-sub">光緒二十六年（1900-06-21）真實疆域對照</span>
+        </div>
+        <div class="top-actions">
+          <button
+            type="button"
+            id="btn-quick-mode"
+            class="quick-chip desktop-only"
+            title="切換《走向共和》8國 / 史實11國"
+          >
+            劇版 8 國
+          </button>
+          <button
+            type="button"
+            id="btn-quick-proj"
+            class="quick-chip desktop-only"
+            title="一鍵切換等積投影與麥卡托失真對照"
+          >
+            投影：Equal Earth
+          </button>
+          <button type="button" id="btn-quick-theme" class="btn-top-icon" aria-label="切換視覺主題">
+            <span class="btn-icon-glyph">📜</span>
+          </button>
+          <button type="button" id="btn-quick-sound" class="btn-top-icon" aria-label="切換音效">
+            <span class="btn-icon-glyph">🔊</span>
+          </button>
+          <button type="button" id="btn-open-info" class="btn-top-icon" aria-label="歷史與資料說明" title="歷史與資料說明">
+            <span>ℹ️</span>
+            <span class="btn-label">說明</span>
+          </button>
+          <button type="button" id="btn-open-settings" class="btn-top-icon" aria-label="開啟設定" title="地圖與播放設定">
+            <span>⚙️</span>
+            <span class="btn-label">設定</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="map-stage" id="map-container">
+        <div class="map-legend" aria-label="地圖圖例">
+          <span class="legend-item"><i class="swatch qing"></i>大清帝國</span>
+          <span class="legend-item"><i class="swatch active"></i>剛宣戰列強</span>
+          <span class="legend-item"><i class="swatch declared"></i>已宣戰列強</span>
+          <span class="legend-item" id="legend-southeast"><i class="swatch southeast"></i>東南互保</span>
+          <span class="legend-item" id="legend-personal" hidden><i class="swatch personal"></i>比王私領剛果</span>
+        </div>
+
+        <div class="zoom-controls" aria-label="地圖縮放控制">
+          <button type="button" id="btn-zoom-in" class="zoom-btn" aria-label="放大地圖" title="放大">+</button>
+          <button type="button" id="btn-zoom-out" class="zoom-btn" aria-label="縮小地圖" title="縮小">−</button>
+          <button type="button" id="btn-zoom-reset" class="zoom-btn" aria-label="重設地圖視角" title="重設視角">⟲</button>
+        </div>
+
+        <div id="map-tooltip" class="map-tooltip" hidden></div>
+        <div id="mobile-inspect-card" class="mobile-inspect-card" hidden></div>
+      </main>
+
+      <footer class="bottom-hud">
+        <div id="area-meter" class="area-meter"></div>
+        <div id="narrative-deck" class="narrative-deck"></div>
+        <nav id="timeline-bar" class="timeline-bar" aria-label="宣戰順序時間軸"></nav>
+      </footer>
+    </div>
+
+    <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+    <aside
+      id="settings-drawer"
+      class="settings-drawer"
+      aria-label="客製化地圖設定"
+      aria-hidden="true"
+    ></aside>
+    <div id="info-modal" class="info-modal" hidden></div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

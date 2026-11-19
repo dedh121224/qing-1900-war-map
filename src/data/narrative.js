@@ -1,0 +1,178 @@
+export const STEPS = [
+  {
+    id: 'qing',
+    order: 0,
+    shortLabel: '大清',
+    nameZh: '大清帝國',
+    nameEn: 'Qing Empire',
+    speechLead: '光緒二十六年・庚子（1900）',
+    quote:
+      '「洋人欺我太甚，竟至國之將亡。與其苟且圖存，貽羞萬古，何若大張撻伐，一決雌雄？朕今日莊嚴宣示——」',
+    capital: { nameZh: '北京', nameEn: 'Peking', coords: [116.4, 39.9] },
+    summary:
+      '1900 年的大清疆域仍涵蓋東北、外蒙古、唐努烏梁海、新疆與西藏；惟台灣與澎湖已於 1895 年《馬關條約》割讓予日本。',
+    coloniesSummary: '本土疆域約 1,100+ 萬平方公里（不含已割讓之台灣）',
+    isHistoricalExtra: false,
+  },
+  {
+    id: 'uk',
+    order: 1,
+    shortLabel: '1 英',
+    nameZh: '大英帝國',
+    nameEn: 'British Empire',
+    speechLead: '第一國・英吉利國',
+    quote: '「向英吉利國，開戰！」',
+    capital: { nameZh: '倫敦', nameEn: 'London', coords: [-0.12, 51.51] },
+    summary:
+      '劇中慈禧第一聲點名，實際上瞬間牽動人類史上最大殖民帝國：除不列顛本土外，加拿大、澳洲、紐西蘭、英屬印度（含巴基斯坦、孟加拉、緬甸）、馬來亞、香港與大半個非洲隨之點亮，全球近四分之一陸地一次變紅。',
+    coloniesSummary:
+      '本土＋加拿大、澳洲、紐西蘭、英屬印度、緬甸、馬來亞、香港、埃及、蘇丹、南非及非洲廣大保護國',
+    isHistoricalExtra: false,
+  },
+  {
+    id: 'france',
+    order: 2,
+    shortLabel: '2 法',
+    nameZh: '法蘭西第三共和國',
+    nameEn: 'French Third Republic',
+    speechLead: '第二國・法蘭西國',
+    quote: '「向法蘭西國，開戰！」',
+    capital: { nameZh: '巴黎', nameEn: 'Paris', coords: [2.35, 48.86] },
+    summary:
+      '法國本土與隔海相望的廣大殖民地接連亮起：從撒哈拉以西與赤道非洲、阿爾及利亞、突尼西亞、馬達加斯加，一直延伸到大清南鄰的法屬印度支那（越南、寮國、柬埔寨）。',
+    coloniesSummary:
+      '本土＋法屬西非、法屬赤道非洲、阿爾及利亞、突尼西亞、馬達加斯加、法屬中南半島、法屬圭亞那',
+    isHistoricalExtra: false,
+  },
+  {
+    id: 'usa',
+    order: 3,
+    shortLabel: '3 美',
+    nameZh: '美利堅合眾國',
+    nameEn: 'United States',
+    speechLead: '第三國・美利堅國',
+    quote: '「向美利堅國，開戰！」',
+    capital: { nameZh: '華盛頓', nameEn: 'Washington, D.C.', coords: [-77.04, 38.9] },
+    summary:
+      '1900 年的美國剛在 1898 年美西戰爭後躍升跨洋強權，除北美本土與阿拉斯加領地外，更把夏威夷與大清東南側的菲律賓群島、波多黎各與關島納入管轄。',
+    coloniesSummary:
+      '美國本土＋阿拉斯加領地、夏威夷領地、菲律賓群島、波多黎各、關島等海外領地',
+    isHistoricalExtra: false,
+  },
+  {
+    id: 'germany',
+    order: 4,
+    shortLabel: '4 德',
+    nameZh: '德意志帝國',
+    nameEn: 'German Empire',
+    speechLead: '第四國・德意志國',
+    quote: '「向德意志國，開戰！」',
+    capital: { nameZh: '柏林', nameEn: 'Berlin', coords: [13.4, 52.52] },
+    summary:
+      '1900 年的德意志帝國本土版圖遠大於今日德國（包含波蘭西部與東普魯士），並握有德屬東非、德屬西南非、喀麥隆、多哥、德屬新幾內亞及山東膠州灣租借地。',
+    coloniesSummary:
+      '德意志帝國本土＋德屬東非（今坦尚尼亞等）、西南非（納米比亞）、喀麥隆、多哥、新幾內亞',
+    isHistoricalExtra: false,
+  },
+  {
+    id: 'russia',
+    order: 5,
+    shortLabel: '5 俄',
+    nameZh: '俄羅斯帝國',
+    nameEn: 'Russian Empire',
+    speechLead: '第五國・俄羅斯國',
+    quote: '「向俄羅斯國，開戰！」',
+    capital: { nameZh: '聖彼得堡', nameEn: 'Saint Petersburg', coords: [30.31, 59.93] },
+    summary:
+      '即便撇開麥卡托投影的高緯度膨脹，等積投影下的俄羅斯帝國仍是一頭橫跨歐亞的巨獸（包含芬蘭、波蘭東部、烏克蘭、白俄、高加索與中亞），緊貼大清整個北方國界，並控制旅大租借地。',
+    coloniesSummary:
+      '歐亞帝國本土（含芬蘭、波蘭、中亞及西伯利亞）＋希瓦與布哈拉保護國',
+    isHistoricalExtra: false,
+  },
+  {
+    id: 'italy',
+    order: 6,
+    shortLabel: '6 義',
+    nameZh: '義大利王國',
+    nameEn: 'Kingdom of Italy',
+    speechLead: '第六國・義大利國',
+    quote: '「向義大利國，開戰！」',
+    capital: { nameZh: '羅馬', nameEn: 'Rome', coords: [12.5, 41.9] },
+    summary:
+      '1900 年義大利王國在非洲擁有厄利垂亞與義屬索馬利蘭（註：利比亞此時仍屬鄂圖曼帝國，直到 1911 年意土戰爭後才易主），雖規模較英法為小，仍派出軍隊參與聯軍。',
+    coloniesSummary: '義大利半島本土＋厄利垂亞、義屬索馬利蘭',
+    isHistoricalExtra: false,
+  },
+  {
+    id: 'austria',
+    order: 7,
+    shortLabel: '7 奧',
+    nameZh: '奧匈帝國',
+    nameEn: 'Austria-Hungary',
+    speechLead: '第七國・奧地利國（奧匈帝國）',
+    quote: '「向奧地利國，開戰！」',
+    capital: { nameZh: '維也納', nameEn: 'Vienna', coords: [16.37, 48.21] },
+    summary:
+      '《走向共和》劇中簡稱為「奧地利國」，實指橫跨中歐與巴爾幹半島的奧匈帝國（涵蓋今奧地利、匈牙利、捷克、斯洛伐克、克羅埃西亞與波士尼亞等地），在天津亦設有奧租界。',
+    coloniesSummary: '中歐二元帝國本土（並佔領管理波士尼亞與赫塞哥維納）',
+    isHistoricalExtra: false,
+  },
+  {
+    id: 'japan',
+    order: 8,
+    shortLabel: '8 日',
+    nameZh: '大日本帝國',
+    nameEn: 'Empire of Japan',
+    speechLead: '第八國・日本國（劇中宣戰完結）',
+    quote: '「向日本國，開戰！欽此。」',
+    capital: { nameZh: '東京', nameEn: 'Tokyo', coords: [139.69, 35.69] },
+    summary:
+      '唸完「欽此」，八國聯軍成員全員到齊。此時日本版圖已納入 1895 年自大清割讓的台灣與澎湖；至於朝鮮半島在 1900 年仍為獨立的「大韓帝國」（1910 年方被日併吞）。',
+    coloniesSummary: '日本列島本土（含琉球、千島）＋日治台灣（1895 年割讓）',
+    isHistoricalExtra: false,
+  },
+  {
+    id: 'netherlands',
+    order: 9,
+    shortLabel: '9 荷',
+    nameZh: '荷蘭王國',
+    nameEn: 'Kingdom of the Netherlands',
+    speechLead: '史實補完・第九國（《宣戰詔書》涵蓋對象）',
+    quote: '「（史實）荷蘭使館亦在宣戰對象之列——雖未出兵，仍參與《辛丑條約》」',
+    capital: { nameZh: '阿姆斯特丹', nameEn: 'Amsterdam', coords: [4.9, 52.37] },
+    summary:
+      '真實歷史上，1900 年 6 月 21 日清廷《對外宣戰詔書》針對在京設有使館的全部 11 個列強。荷蘭本土雖小，但靠著廣袤的荷屬東印度（今印尼群島）與蘇利南，在等積地圖上依然亮起大片疆域。',
+    coloniesSummary: '荷蘭本土＋荷屬東印度（今印尼群島）、蘇利南與荷屬安的列斯',
+    isHistoricalExtra: true,
+  },
+  {
+    id: 'belgium',
+    order: 10,
+    shortLabel: '10 比',
+    nameZh: '比利時王國',
+    nameEn: 'Kingdom of Belgium',
+    speechLead: '史實補完・第十國（《宣戰詔書》涵蓋對象）',
+    quote: '「（史實）比利時未派軍加入聯軍，惟其國王在非洲私領了八十倍本土的剛果」',
+    capital: { nameZh: '布魯塞爾', nameEn: 'Brussels', coords: [4.35, 50.85] },
+    summary:
+      '1900 年時的「剛果自由邦」（230+ 萬平方公里）嚴格來說是比利時國王利奧波德二世的私人領地，直到 1908 年才正式移交給比利時國家政府。地圖上以斜線特別標示這段冷知識。',
+    coloniesSummary: '比利時本土＋（王室私領）剛果自由邦',
+    isHistoricalExtra: true,
+  },
+  {
+    id: 'spain',
+    order: 11,
+    shortLabel: '11 西',
+    nameZh: '西班牙王國',
+    nameEn: 'Kingdom of Spain',
+    speechLead: '史實補完・第十一國（《辛丑條約》十一國全數到齊）',
+    quote: '「（史實）歷經 1898 美西戰爭慘敗後的西班牙，亦在受宣戰與簽約之列」',
+    capital: { nameZh: '馬德里', nameEn: 'Madrid', coords: [-3.7, 40.42] },
+    summary:
+      '曾經的「日不落帝國」剛於 1898 年美西戰爭失去古巴、波多黎各與菲律賓，1900 年僅餘伊比利本土與少數非洲屬地。西班牙雖未出兵侵華，最終仍成為《辛丑條約》十一國簽約國之一。',
+    coloniesSummary: '西班牙本土＋西屬撒哈拉與西屬幾內亞等非洲零星屬地',
+    isHistoricalExtra: true,
+  },
+];
+
+export const POWER_META = Object.fromEntries(STEPS.map((s) => [s.id, s]));

@@ -1,0 +1,118 @@
+{
+  "snapshotDate": "1900-06-21",
+  "source": {
+    "name": "CShapes 2.0 (ETH Zurich International Conflict Research)",
+    "citation": "Schvitz, Guy, Seraina Rüegger, Luc Girardin, Lars-Erik Cederman, Nils B. Weidmann, and Kristian Skrede Gleditsch (2022). Mapping The International System, 1886–2019: The CShapes 2.0 Dataset. Journal of Conflict Resolution.",
+    "url": "https://icr.ethz.ch/data/cshapes/",
+    "license": "CC BY-NC-SA 4.0"
+  },
+  "noteGlobalArea": "全球非南極可統計政區陸地總面積依 CShapes 2.0 之 1900-06-21 政區幾何以球面面積計算（不含無人南極洲與未編碼荒島）。",
+  "featureCount": 151,
+  "globalLandKm2": 129962557,
+  "powers": {
+    "usa": {
+      "power": "usa",
+      "metropoleKm2": 7933036,
+      "colonyKm2": 1815911,
+      "personalKm2": 0,
+      "totalKm2": 9748947,
+      "featureCount": 5
+    },
+    "uk": {
+      "power": "uk",
+      "metropoleKm2": 312337,
+      "colonyKm2": 32821757,
+      "personalKm2": 0,
+      "totalKm2": 33134094,
+      "featureCount": 52
+    },
+    "neutral": {
+      "power": "neutral",
+      "metropoleKm2": 0,
+      "colonyKm2": 0,
+      "personalKm2": 0,
+      "totalKm2": 31782663,
+      "featureCount": 48
+    },
+    "france": {
+      "power": "france",
+      "metropoleKm2": 530949,
+      "colonyKm2": 11215915,
+      "personalKm2": 0,
+      "totalKm2": 11746864,
+      "featureCount": 20
+    },
+    "netherlands": {
+      "power": "netherlands",
+      "metropoleKm2": 34802,
+      "colonyKm2": 2031179,
+      "personalKm2": 0,
+      "totalKm2": 2065981,
+      "featureCount": 3
+    },
+    "belgium": {
+      "power": "belgium",
+      "metropoleKm2": 30533,
+      "colonyKm2": 0,
+      "personalKm2": 2391428,
+      "totalKm2": 2421961,
+      "featureCount": 2
+    },
+    "spain": {
+      "power": "spain",
+      "metropoleKm2": 505568,
+      "colonyKm2": 203872,
+      "personalKm2": 0,
+      "totalKm2": 709440,
+      "featureCount": 3
+    },
+    "germany": {
+      "power": "germany",
+      "metropoleKm2": 538094,
+      "colonyKm2": 2648377,
+      "personalKm2": 0,
+      "totalKm2": 3186471,
+      "featureCount": 6
+    },
+    "austria": {
+      "power": "austria",
+      "metropoleKm2": 622422,
+      "colonyKm2": 51431,
+      "personalKm2": 0,
+      "totalKm2": 673853,
+      "featureCount": 3
+    },
+    "italy": {
+      "power": "italy",
+      "metropoleKm2": 284187,
+      "colonyKm2": 493272,
+      "personalKm2": 0,
+      "totalKm2": 777459,
+      "featureCount": 3
+    },
+    "russia": {
+      "power": "russia",
+      "metropoleKm2": 21908160,
+      "colonyKm2": 295422,
+      "personalKm2": 0,
+      "totalKm2": 22203582,
+      "featureCount": 3
+    },
+    "qing": {
+      "power": "qing",
+      "metropoleKm2": 11104393,
+      "colonyKm2": 0,
+      "personalKm2": 0,
+      "totalKm2": 11104393,
+      "featureCount": 1
+    },
+    "japan": {
+      "power": "japan",
+      "metropoleKm2": 370776,
+      "colonyKm2": 36073,
+      "personalKm2": 0,
+      "totalKm2": 406849,
+      "featureCount": 2
+    }
+  }
+}

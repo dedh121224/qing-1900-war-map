@@ -1,0 +1,111 @@
+:root,
+[data-theme='cinema'] {
+  --font-serif: 'Noto Serif TC', 'Source Han Serif TC', 'PMingLiU', Georgia, serif;
+  --font-sans: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', system-ui, -apple-system, sans-serif;
+
+  --bg-app: #070a10;
+  --bg-app-radial: radial-gradient(circle at 50% 35%, #111827 0%, #070a10 72%);
+  --bg-panel: rgba(12, 17, 29, 0.86);
+  --bg-panel-solid: #0f1523;
+  --bg-elevated: rgba(25, 34, 54, 0.85);
+  --bg-pill: rgba(30, 41, 59, 0.72);
+  --bg-pill-hover: rgba(51, 65, 85, 0.9);
+  --border-subtle: rgba(148, 163, 184, 0.16);
+  --border-strong: rgba(245, 158, 11, 0.4);
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-accent: #fbbf24;
+  --text-danger: #fb7185;
+
+  --map-ocean: #0b1322;
+  --map-ocean-edge: rgba(148, 163, 184, 0.28);
+  --map-graticule: rgba(148, 163, 184, 0.085);
+  --map-neutral: #1a2335;
+  --map-neutral-stroke: #2c3a54;
+  --map-unlit: #202b40;
+  --map-unlit-stroke: #32415c;
+
+  --map-qing: #f59e0b;
+  --map-qing-stroke: #fef08a;
+  --map-qing-glow: rgba(245, 158, 11, 0.45);
+
+  --map-active-metropole: #ff4d2e;
+  --map-active-metropole-stroke: #fde047;
+  --map-active-colony: #ef4444;
+  --map-active-colony-stroke: #fca5a5;
+
+  --map-declared-metropole: #b91c1c;
+  --map-declared-metropole-stroke: #ef4444;
+  --map-declared-colony: #8f1d1d;
+  --map-declared-colony-stroke: #b91c1c;
+
+  --map-personal-bg: #7f1d1d;
+  --map-personal-stripe: #dc2626;
+  --map-southeast-bg: rgba(15, 23, 42, 0.48);
+  --map-southeast-stripe: rgba(226, 232, 240, 0.65);
+
+  --capital-qing: #fef08a;
+  --capital-active: #fff7ed;
+  --capital-declared: #fca5a5;
+
+  --shadow-panel: 0 12px 36px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --meter-qing: linear-gradient(90deg, #d97706, #fbbf24);
+  --meter-powers: linear-gradient(90deg, #991b1b, #ef4444, #ff6b4a);
+}
+
+[data-theme='parchment'] {
+  --bg-app: #eadec9;
+  --bg-app-radial: radial-gradient(circle at 50% 40%, #f4ebd9 0%, #e1d1b4 85%);
+  --bg-panel: rgba(248, 241, 228, 0.92);
+  --bg-panel-solid: #f6eedf;
+  --bg-elevated: rgba(235, 222, 198, 0.94);
+  --bg-pill: rgba(224, 209, 182, 0.78);
+  --bg-pill-hover: rgba(210, 191, 159, 0.95);
+  --border-subtle: rgba(101, 74, 42, 0.22);
+  --border-strong: rgba(161, 98, 7, 0.5);
+
+  --text-primary: #261b10;
+  --text-secondary: #4a3723;
+  --text-muted: #6e573e;
+  --text-accent: #9a5b08;
+  --text-danger: #991b1b;
+
+  --map-ocean: #dfd0b4;
+  --map-ocean-edge: #6b4f31;
+  --map-graticule: rgba(94, 69, 41, 0.16);
+  --map-neutral: #d1be9a;
+  --map-neutral-stroke: #8c7353;
+  --map-unlit: #cbb68e;
+  --map-unlit-stroke: #856c4b;
+
+  --map-qing: #d99b1c;
+  --map-qing-stroke: #713f12;
+  --map-qing-glow: rgba(180, 118, 12, 0.32);
+
+  --map-active-metropole: #d92b2b;
+  --map-active-metropole-stroke: #450a0a;
+  --map-active-colony: #de483c;
+  --map-active-colony-stroke: #7f1d1d;
+
+  --map-declared-metropole: #9d1c1c;
+  --map-declared-metropole-stroke: #5c1010;
+  --map-declared-colony: #842323;
+  --map-declared-colony-stroke: #5c1919;
+
+  --map-personal-bg: #7a2626;
+  --map-personal-stripe: #c84b4b;
+  --map-southeast-bg: rgba(90, 74, 54, 0.28);
+  --map-southeast-stripe: rgba(45, 32, 18, 0.6);
+
+  --capital-qing: #78350f;
+  --capital-active: #450a0a;
+  --capital-declared: #7f1d1d;
+
+  --shadow-panel: 0 10px 28px rgba(68, 46, 20, 0.18);
+  --shadow-card: 0 6px 18px rgba(68, 46, 20, 0.16);
+  --meter-qing: linear-gradient(90deg, #b45309, #eab308);
+  --meter-powers: linear-gradient(90deg, #7f1d1d, #b91c1c, #e11d48);
+}
